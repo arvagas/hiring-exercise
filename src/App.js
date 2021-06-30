@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
+  const [results, setResults] = useState()
+
+  let url = new URL('https://fetch-hiring.s3.amazonaws.com/hiring.json');
+
+  // Will run once on DOM load; grab data from supplied url
+  useEffect(() => {
+    fetch(url)
+      .then(res => res.json())
+      .then(res => setResults(res));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
     </div>
   );
 }
