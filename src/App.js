@@ -25,8 +25,8 @@ function App() {
 
   return (
     <div className='container'>
-      {results && results.map(item => (
-        <ItemTable key={Date.now()} data={item} />
+      {results && results.map((item, index) => (
+        <ItemTable key={Date.now()+index} data={item} />
       ))}
     </div>
   );
