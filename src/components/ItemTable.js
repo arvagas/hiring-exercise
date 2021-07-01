@@ -1,5 +1,5 @@
 import React from 'react';
-import Item from './Item'
+import Item from './Item';
 
 const ItemTable = ({ data }) => {
   return (
@@ -12,16 +12,11 @@ const ItemTable = ({ data }) => {
         <th>List ID</th>
         <th>Name</th>
       </tr>
-      { data && data.map(item => (
-        <tr>
-          <th>{item.id}</th>
-          <th>{item.listId}</th>
-          <th>{item.name}</th>
-        </tr>
-      ))
-      }
+      {data && data.map(item => (
+        <Item key={item.id} data={item} />
+      ))}
     </table>
-  )
+  );
 };
 
-export default ItemTable
+export default ItemTable;
