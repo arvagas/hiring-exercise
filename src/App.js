@@ -1,7 +1,7 @@
 // libraries
 import React, { useState, useEffect } from 'react';
 //components
-import Item from './components/Item'
+import ItemTable from './components/ItemTable'
 //styles
 import './App.css';
 
@@ -42,9 +42,7 @@ function App() {
 
   return (
     <div>
-      {results && results.map(item => (
-        <Item key={item.id} data={item} />
-      ))}
+      <ItemTable key={Date.now()} data={results} />
     </div>
   );
 };

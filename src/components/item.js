@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
 const Item = ({ data }) => {
-
-    return (
-        <div>
-            <p>List ID: {data.listId}</p>
-            <p>Name: {data.name}</p>
-        </div>
-    );
+  return (
+    <tr>
+      <td>{data.id}</td>
+      <td>{data.listId}</td>
+      <td>{data.name}</td>
+    </tr>
+  );
 };
 
-export default Item
+export default Item;
