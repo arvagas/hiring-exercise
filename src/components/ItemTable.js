@@ -1,13 +1,17 @@
+// libraries
 import React from 'react';
+// components
 import Item from './Item';
+//styles
+import '../styles/ItemTable.scss'
 
 const ItemTable = ({ data }) => {
   return (
     <table>
       <tr className='tableTitle'>
-        <th>Item Table for List Id {data[0].listId}</th>
+        <th colSpan='3'>Item Table for List ID {data[0].listId}</th>
       </tr>
-      <tr>
+      <tr className='tableCategories'>
         <th>ID</th>
         <th>List ID</th>
         <th>Name</th>
