@@ -1,7 +1,7 @@
 // libraries
 import React, { useState, useEffect } from 'react';
 //components
-import Item from './components/Item'
+import ItemTable from './components/ItemTable'
 //styles
 import './App.css';
 
@@ -16,6 +16,9 @@ function App() {
       .then(res => res.json())
       .then(res => {
         let tempArr = [];
+        let groupSplit = [];
+        let groupSplitFinal = [];
+        let groupSplitCounter = 1;
 
         // Filter out items with blank/null name
         res.forEach(list => {
@@ -36,14 +39,27 @@ function App() {
         // Sorts array further by List ID
         tempArr.sort((a, b) => a.listId - b.listId);
 
-        setResults(tempArr);
+        // Separate array into List ID groups
+        tempArr.forEach((list, index) => {
+          if (list.listId === groupSplitCounter) groupSplit.push(list);
+          else {
+            groupSplitFinal.push(groupSplit);
+            groupSplit = [];
+            groupSplitCounter++;
+          }
+
+          // Make sure last item finalizes group split
+          if (index === tempArr.length -1) groupSplitFinal.push(groupSplit);
+        });
+
+        setResults(groupSplitFinal);
       });
   }, []);
 
   return (
     <div>
       {results && results.map(item => (
-        <Item key={item.id} data={item} />
+        <ItemTable key={Date.now()} data={item} />
       ))}
     </div>
   );
