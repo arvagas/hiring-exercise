@@ -14,7 +14,16 @@ function App() {
   useEffect(() => {
     fetch(url)
       .then(res => res.json())
-      .then(res => setResults(res));
+      .then(res => {
+        let tempArr = [];
+
+        // filter out items with blank/null name
+        res.forEach(list => {
+          if (list.name) tempArr.push(list);
+        });
+
+        setResults(tempArr);
+      });
   }, []);
 
   return (
@@ -24,6 +33,6 @@ function App() {
       ))}
     </div>
   );
-}
+};
 
 export default App;
