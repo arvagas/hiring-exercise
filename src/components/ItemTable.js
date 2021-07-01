@@ -5,7 +5,7 @@ const ItemTable = ({ data }) => {
   return (
     <table>
       <tr className='tableTitle'>
-        <th>Item Table</th>
+        <th>Item Table for List Id {data[0].listId}</th>
       </tr>
       <tr>
         <th>ID</th>

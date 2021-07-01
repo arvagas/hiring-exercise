@@ -16,6 +16,9 @@ function App() {
       .then(res => res.json())
       .then(res => {
         let tempArr = [];
+        let groupSplit = [];
+        let groupSplitFinal = [];
+        let groupSplitCounter = 1;
 
         // Filter out items with blank/null name
         res.forEach(list => {
@@ -36,13 +39,28 @@ function App() {
         // Sorts array further by List ID
         tempArr.sort((a, b) => a.listId - b.listId);
 
-        setResults(tempArr);
+        // Separate array into List ID groups
+        tempArr.forEach((list, index) => {
+          if (list.listId === groupSplitCounter) groupSplit.push(list);
+          else {
+            groupSplitFinal.push(groupSplit);
+            groupSplit = [];
+            groupSplitCounter++;
+          }
+
+          // Make sure last item finalizes group split
+          if (index === tempArr.length -1) groupSplitFinal.push(groupSplit);
+        });
+
+        setResults(groupSplitFinal);
       });
   }, []);
 
   return (
     <div>
-      <ItemTable key={Date.now()} data={results} />
+      {results && results.map(item => (
+        <ItemTable key={Date.now()} data={item} />
+      ))}
     </div>
   );
 };
