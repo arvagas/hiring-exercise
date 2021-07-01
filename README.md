@@ -1,8 +1,4 @@
-<p align="center" style="font-size:2.4rem;">
-  Hiring Exercise
-</p>
-
-# About
+# Hiring Exercise
 
 A simple exercise in pulling JSON data, filtering and sorting items, and finally displaying the end result.
 
