@@ -1,0 +1,21 @@
+table {
+  margin: 0 auto 2rem;
+  max-width: 1000px;
+  width: 100%;
+
+  &:last-child {
+    margin: 0 auto;
+  }
+}
+
+td {
+  text-align: center;
+}
+
+.tableTitle, .tableCategories {
+  background-color: rgba(75, 119, 190, 1);
+}
+
+.tableTitle {
+  font-size: 1.6rem;
+}

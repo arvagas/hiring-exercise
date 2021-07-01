@@ -5,7 +5,7 @@ import ItemTable from './components/ItemTable';
 //utils
 import { dataFilter } from './utils/dataFilter';
 //styles
-import './App.css';
+import './styles/App.scss';
 
 function App() {
   const [results, setResults] = useState();
@@ -24,7 +24,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className='container'>
       {results && results.map(item => (
         <ItemTable key={Date.now()} data={item} />
       ))}

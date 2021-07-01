@@ -1,0 +1,5 @@
+.itemRow {
+  &:nth-child(odd) {
+    background-color: rgba(228, 241, 254, 1);
+  } 
+}
